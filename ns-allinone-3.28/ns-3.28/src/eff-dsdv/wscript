@@ -1,0 +1,38 @@
+# -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+# def options(opt):
+#     pass
+
+# def configure(conf):
+#     conf.check_nonfatal(header_name='stdint.h', define_name='HAVE_STDINT_H')
+
+def build(bld):
+    module = bld.create_ns3_module('eff-dsdv', ['internet'])
+    module.source = [
+        'model/eff-dsdv-packet-queue.cc',
+        'model/eff-dsdv-packet.cc',
+        'model/eff-dsdv-rtable.cc',
+        'model/eff-dsdv-routing-protocol.cc',
+        'helper/eff-dsdv-helper.cc',
+        ]
+
+    module_test = bld.create_ns3_module_test_library('eff-dsdv')
+    module_test.source = [
+        'test/eff-dsdv-test-suite.cc',
+        ]
+
+    headers = bld(features='ns3header')
+    headers.module = 'eff-dsdv'
+    headers.source = [
+        'model/eff-dsdv-packet-queue.h',
+        'model/eff-dsdv-packet.h',
+        'model/eff-dsdv-rtable.h',
+        'model/eff-dsdv-routing-protocol.h',
+        'helper/eff-dsdv-helper.h',
+        ]
+
+   # if bld.env.ENABLE_EXAMPLES:
+       # bld.recurse('examples')
+
+    # bld.ns3_python_bindings()
+
