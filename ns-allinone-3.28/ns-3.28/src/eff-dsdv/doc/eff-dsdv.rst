@@ -4,19 +4,18 @@ Eff-DSDV Routing
 ------------
 
 Efficient Destination-Sequenced Distance Vector (Eff-DSDV) routing protocol is a pro-active, table-driven routing protocol with reactive features
-for MANETs developed by Khan et al. in 2008 as based on Perkins et al. DSDV routing protocol from 1994. It uses the hop count as metric in route
+for MANETs developed by Khan et al. in 2008 and based on Perkins et al. DSDV routing protocol from 1994. It uses hop count as a metric for route
 selection.
 
 This model was developed by 
-`Thorben Ole Hellweg <http://hellweg.io>`_
-at the University of Münster as part of his bachelor thesis, which can be downloaded from November 2018 at
-`this URL <https://hellweg.io/papers/effdsdv_thesis.pdf>`_. 
+`Thorben Ole Hellweg <http://thllwg.de>`_
+at the University of Münster as part of his bachelor thesis.
 
 Eff-DSDV Routing Overview
 *********************
 
 Eff-DSDV Main Routing Table: Every node will maintain a table listing all the other nodes it has known either directly
-or through some neighbors. Every node has a single entry in the routing table. The entry will have information
+or through some neighbors. Every node has a single entry in the routing table. The entry will store information
 about the node's IP address, last known sequence number and the hop count to reach that node. Along with these
 details the table also keeps track of the nexthop neighbor to reach the destination node, the timestamp of the last
 update received for that node. Using the timestamp of the last received update, the protocol distinguished between valid 
@@ -58,8 +57,3 @@ The requesting node chooses the best route of all Route Acknowledgements by firs
 then - in case of equal hop counts - the update time of each route. Of those acknowledgements with the best (equal) hop 
 counts, the most recently updated one gets chosen.
 
-
-References
-**********
-
-Link to the Paper: http://hellweg.io/papers/effdsdv_thesis.pdf
